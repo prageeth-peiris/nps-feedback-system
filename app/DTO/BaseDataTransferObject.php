@@ -2,4 +2,4 @@
 
 namespace App\DTO;
 
-abstract class TemplateDataTransferObject {}
+abstract class BaseDataTransferObject {}
