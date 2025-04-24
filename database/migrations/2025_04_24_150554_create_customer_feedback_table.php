@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('customer_feedback', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('feedback_score');
-            $table->text('answer_to_follow_up_question')->nullable(); //this can be a large answer from customer so text can hold 65 000 chars
-            $table->char('response_group',50);  //  response group  can be promoters , passives , detractors according to feedback score
+            $table->text('answer_to_follow_up_question')->nullable(); // this can be a large answer from customer so text can hold 65 000 chars
+            $table->char('response_group', 50);  //  response group  can be promoters , passives , detractors according to feedback score
             $table->timestamps();
         });
     }
