@@ -25,7 +25,7 @@ public function getResponseGroup():string{
 }
 
 if($score >= 0 && $score <= 6){
-    return "Passive";
+    return "Detractor";
 }
 
 
