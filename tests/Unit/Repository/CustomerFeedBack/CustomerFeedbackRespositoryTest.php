@@ -51,4 +51,42 @@ class CustomerFeedbackRespositoryTest extends TestCase
     }
 
 
+    public function test_it_filters_customer_feedback_by_feedback_score()
+    {
+
+        //insert 3 records
+            CustomerFeedback::factory()->create(
+
+                (new CustomerFeedbackDTO(feedback_score: 6))->toArray()
+
+            );
+
+        CustomerFeedback::factory()->create(
+
+            (new CustomerFeedbackDTO(feedback_score: 2))->toArray()
+
+        );
+
+        CustomerFeedback::factory()->create(
+
+            (new CustomerFeedbackDTO(feedback_score: 9))->toArray()
+
+        );
+
+
+
+        $dataTableDTO = new DataTableDTO(
+            filters: [
+
+                ['feedback_score', '>',5]
+            ]
+        );
+
+      $results =   app(CustomerFeedbackRepositoryContract::class)->retrieve($dataTableDTO);
+
+      $this->assertEquals(2,$results->count());
+
+    }
+
+
 }
