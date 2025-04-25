@@ -3,6 +3,7 @@
 namespace Repository\CustomerFeedBack;
 
 use App\DTO\CustomerFeedbackDTO;
+use App\DTO\DataTableDTO;
 use App\Models\CustomerFeedback;
 use App\Repositories\CustomerFeedback\CustomerFeedbackRepositoryContract;
 use Tests\TestCase;
@@ -35,7 +36,19 @@ class CustomerFeedbackRespositoryTest extends TestCase
 
    }
 
+    public function test_it_retrieves_data_with_pagination()
+    {
 
+            CustomerFeedback::factory()->count(50)->create();
+
+            $dataTableDTO = new DataTableDTO();
+
+          $feedbacks = app(CustomerFeedBackRepositoryContract::class)->retrieve($dataTableDTO);
+
+          $this->assertEquals( 10,$feedbacks->count());
+
+
+    }
 
 
 }
