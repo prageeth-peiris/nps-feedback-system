@@ -7,7 +7,7 @@ class CustomerFeedbackDTO extends BaseDataTransferObject {
 // uses constructor property promotion
 public function __construct(
     public int $feedback_score,
-    public string $answer_to_follow_up_question
+    public ?string $answer_to_follow_up_question
 ){
 }
 
