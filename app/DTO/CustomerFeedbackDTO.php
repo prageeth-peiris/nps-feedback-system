@@ -35,6 +35,21 @@ throw new \Exception("Invalid Feedback score to define the response group");
 }
 
 
+// this can be used for persisting data in  database
+public function toArray(): array {
+
+    return [
+
+        'feedback_score' => $this->feedback_score,
+        'answer_to_follow_up_question' => $this->answer_to_follow_up_question,
+        'response_group' => $this->getResponseGroup()
+
+
+    ];
+
+}
+
+
 
 
 }
