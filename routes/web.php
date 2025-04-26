@@ -15,3 +15,4 @@ Route::get('/thank-you', function () {
 Route::post('create-customer-feedback',[CustomerFeedbackController::class,'store'])
     ->name('create-customer-feedback');
 
+Route::get('dashboard',[CustomerFeedbackController::class,'list'])->name('dashboard');
