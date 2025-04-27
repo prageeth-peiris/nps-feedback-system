@@ -13,7 +13,8 @@ class Button extends Component
      */
     public function __construct(
         public string $label = "Submit",
-        public string $type = "submit"
+        public string $type = "submit",
+        public string $extraAttributes = ""
     )
     {
         //
