@@ -127,8 +127,9 @@ class CustomerFeedbackRespositoryTest extends TestCase
 
 
         $this->assertEquals([
+            ['response_group' => 'Promoter','total' => 3] ,
             ['response_group' => 'Detractor','total' => 2],
-            ['response_group' => 'Promoter','total' => 3],
+
         ],$results->toArray());
 
     }

@@ -8,6 +8,7 @@ use App\Http\Requests\CustomerFeedbackDataTableRequest;
 use App\Http\Requests\DataTableRequest;
 use App\Http\Requests\StoreCustomerFeedbackRequest;
 use App\Services\CustomerFeedback\CustomerFeedbackServiceContract;
+use Illuminate\Validation\ValidationException;
 
 
 class CustomerFeedbackController extends Controller
@@ -20,17 +21,23 @@ class CustomerFeedbackController extends Controller
     {
     }
 
+
+    // warning : this form request does not belong to laravel default FormRequest class
     public function store(StoreCustomerFeedbackRequest $request){
+
 
             try{
 
             $this->customerFeedbackServiceContract->save($request->getValidatedData());
 
+
+
             return redirect()->route('thank-you');
 
-            }catch (\Exception $exception){
+            }catch (ValidationException $exception){
 
 
+                  return redirect()->back()->withErrors($exception->errors());
 
             }
 

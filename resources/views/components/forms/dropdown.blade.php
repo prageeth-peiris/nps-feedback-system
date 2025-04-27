@@ -1,6 +1,8 @@
 <div>
 
-
+    @error($id)
+    <div class="text-red-600 text-sm mt-1">{{ $message }}</div>
+    @enderror
     <label for="{{$id}}" class="block text-gray-700 font-medium mb-2">{{$label}}</label>
 
 

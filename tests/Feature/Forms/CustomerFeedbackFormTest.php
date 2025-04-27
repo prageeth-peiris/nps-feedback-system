@@ -3,6 +3,7 @@
 namespace Forms;
 
 use App\Models\CustomerFeedback;
+use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
 
 class CustomerFeedbackFormTest extends TestCase
@@ -19,7 +20,11 @@ class CustomerFeedbackFormTest extends TestCase
 
    $response =  $this->post(route('create-customer-feedback'), $test_data);
 
+      $response->assertSessionHasNoErrors();
+
    $response->assertRedirect(route('thank-you'));
+
+
 
    $this->assertDatabaseCount(CustomerFeedback::class, 1);
 
@@ -27,6 +32,22 @@ class CustomerFeedbackFormTest extends TestCase
         'feedback_score' => 5 ,
         'answer_to_follow_up_question' => 'Add more service'
     ]);
+
+  }
+
+  public function test_it_validates_feedback_form_request_data()
+  {
+
+      $test_data = [
+
+          'feedback_score' => "" ,
+          'feedback_message' => 'Add more service'
+      ];
+
+
+      $response =  $this->post(route('create-customer-feedback'), $test_data);
+
+      $response->assertSessionHasErrors('feedback_score');
 
   }
 
