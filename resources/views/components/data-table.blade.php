@@ -6,7 +6,7 @@
             <p>Total Records : {{$total}}</p>
         </span>
 
-        <a class="w-1/12" href="{{route('export')}}">  <x-forms.button type="reset" label="Export"/></a>
+        <a class="w-1/12" href="{{route('export')}}">  <x-forms.button type="reset" label="Export All"/></a>
 
     </div>
 
