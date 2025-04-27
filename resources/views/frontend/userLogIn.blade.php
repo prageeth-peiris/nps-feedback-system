@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <x-forms.form title="Log In" :action="route('attempt-auth')" method="POST">
+    <x-forms.form title="Log In" :action="route('attempt-auth')" method="POST" id="login-form">
 
         @error('fail')
         <div class="text-red-600 text-sm mt-1">{{ $message }}</div>
