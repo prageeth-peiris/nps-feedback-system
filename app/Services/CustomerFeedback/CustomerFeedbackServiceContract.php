@@ -11,4 +11,7 @@ interface CustomerFeedbackServiceContract
     public function save(CustomerFeedbackDTO $customerFeedbackDTO);
 
     public function retrieve(DataTableDTO $dataTableDTO): Collection;
+
+    public function retrieveCount(DataTableDTO $dataTableDTO): int;
+
 }

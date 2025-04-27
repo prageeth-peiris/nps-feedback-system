@@ -42,4 +42,17 @@ class CustomerFeedBackRepositoryImplementation implements BaseRepositoryProperti
     {
         return new CustomerFeedback;
     }
+
+    public function retrieveCount(DataTableDTO $dataTableDTO): int
+    {
+        return CustomerFeedback::query()
+            ->where($dataTableDTO->getFilters())
+            ->orderBy($dataTableDTO->sortingColumn, $dataTableDTO->sortingDirection)
+            ->limit($dataTableDTO->limit)
+            ->offset($dataTableDTO->offset)
+            ->count();
+
+    }
+
+
 }

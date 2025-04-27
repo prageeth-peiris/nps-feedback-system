@@ -19,4 +19,6 @@ interface CustomerFeedbackRepositoryContract
     //
     // ]
     public function countOfFeedbacksOfEachResponseGroup(): Collection;
+
+    public function retrieveCount(DataTableDTO $dataTableDTO):int;
 }
