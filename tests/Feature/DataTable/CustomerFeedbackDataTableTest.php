@@ -4,6 +4,7 @@ namespace DataTable;
 
 use App\DTO\CustomerFeedbackDTO;
 use App\Models\CustomerFeedback;
+use App\Models\User;
 use Tests\TestCase;
 
 class CustomerFeedbackDataTableTest extends TestCase
@@ -11,6 +12,9 @@ class CustomerFeedbackDataTableTest extends TestCase
 
 
    public function test_it_retrieves_feedback_data_for_data_table(){
+       // first simulate user has been logged in before the request is made
+       $user = User::factory()->create();
+       $this->actingAs($user);
 
         CustomerFeedback::factory()->count(10)->create();
         $response = $this->get(route('dashboard'));
@@ -25,6 +29,11 @@ class CustomerFeedbackDataTableTest extends TestCase
 
 
    public function test_it_filters_by_response_group_with_frontend_filter_form(){
+
+       // first simulate user has been logged in before the request is made
+       $user = User::factory()->create();
+       $this->actingAs($user);
+
        //insert 3 records
        CustomerFeedback::factory()->create(
 
