@@ -58,6 +58,11 @@ php artisan app:create-user "username" "user-email" "user-password"
 ```
 php artisan test
 ```
+
+## Sample Data
+```
+php artisan db:seed
+```
 ## Authors
 #### Developed By :  Prageeth Peiris
 #### Contact : glpspeiris@gmail.com
