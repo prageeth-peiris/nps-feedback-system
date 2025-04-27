@@ -5,9 +5,11 @@ namespace App\Repositories\CustomerFeedback;
 use App\DTO\CustomerFeedbackDTO;
 use App\DTO\DataTableDTO;
 use App\Models\CustomerFeedback;
+use App\Repositories\BaseRepositoryPropertiesContract;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 
-class CustomerFeedBackRepositoryImplementation implements CustomerFeedbackRepositoryContract
+class CustomerFeedBackRepositoryImplementation implements CustomerFeedbackRepositoryContract , BaseRepositoryPropertiesContract
 {
     public function save(CustomerFeedbackDTO $customerFeedbackDTO): void
     {
@@ -36,4 +38,11 @@ class CustomerFeedBackRepositoryImplementation implements CustomerFeedbackReposi
             ->orderBy('total', 'desc')
             ->get();
     }
+
+    public function getModel(): \Illuminate\Database\Eloquent\Model
+    {
+        return new CustomerFeedback();
+    }
+
+
 }
