@@ -30,4 +30,12 @@ class Dropdown extends Component
     {
         return view('components.forms.dropdown');
     }
+
+    public function isSelected($option_value): bool
+    {
+        //if the request parameter is equal to the select option value then it should be selected
+        //this method can be invoked in blade view. we pass select option value
+        return $option_value === request()->get($this->id);
+    }
+
 }

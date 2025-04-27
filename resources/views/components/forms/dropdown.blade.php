@@ -13,7 +13,7 @@
 
         @foreach($options as $option)
 {{--            here option variable must be an array whose 0 index must value and 1 index must be display name--}}
-            <option value="{{$option[0]}}">{{$option[1]}}</option>
+            <option value="{{$option[0]}}"  {{ $isSelected($option[0]) ? 'selected' : '' }}>{{$option[1]}}</option>
         @endforeach
     </select>
 
