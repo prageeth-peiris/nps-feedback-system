@@ -15,10 +15,10 @@ class Dropdown extends Component
     // should pass options to dropdown as this.ex.  [  ['name','Full Name'] , ['age','Age'] ]
     public function __construct(public readonly array $options,
 
-                                public string $label = 'Enter Text',
-                                public string $id = "my-text",
-                                public bool $required = true,
-                                public string $extraAttributes = "" ) // here define extra attributes like selected
+        public string $label = 'Enter Text',
+        public string $id = 'my-text',
+        public bool $required = true,
+        public string $extraAttributes = '') // here define extra attributes like selected
     {
         //
     }
@@ -33,9 +33,8 @@ class Dropdown extends Component
 
     public function isSelected($option_value): bool
     {
-        //if the request parameter is equal to the select option value then it should be selected
-        //this method can be invoked in blade view. we pass select option value
+        // if the request parameter is equal to the select option value then it should be selected
+        // this method can be invoked in blade view. we pass select option value
         return $option_value === request()->get($this->id);
     }
-
 }

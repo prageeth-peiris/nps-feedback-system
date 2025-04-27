@@ -9,24 +9,18 @@ use Illuminate\Support\Collection;
 
 class CustomerFeedbackServiceImplementation implements CustomerFeedbackServiceContract
 {
-
-
     public function __construct(
         private readonly CustomerFeedbackRepositoryContract $customerFeedbackRepository
-    )
-    {
-    }
+    ) {}
 
     public function save(CustomerFeedbackDTO $customerFeedbackDTO): void
     {
-            $this->customerFeedbackRepository->save($customerFeedbackDTO);
+        $this->customerFeedbackRepository->save($customerFeedbackDTO);
 
     }
 
-    public function retrieve(DataTableDTO $dataTableDTO):Collection
+    public function retrieve(DataTableDTO $dataTableDTO): Collection
     {
         return $this->customerFeedbackRepository->retrieve($dataTableDTO);
     }
-
-
 }

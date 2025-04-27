@@ -22,12 +22,11 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
 
-       $this->app->bind(CustomerFeedbackRepositoryContract::class,CustomerFeedBackRepositoryImplementation::class);
-       $this->app->bind(CustomerFeedBackServiceContract::class,CustomerFeedBackServiceImplementation::class);
-       $this->app->bind(ChartServiceContract::class,ChartServiceImplementation::class);
-       $this->app->bind(UserRepositoryContract::class,UserRepositoryImplementation::class);
-       $this->app->bind(UserServiceContract::class,UserServiceImplementation::class);
-
+        $this->app->bind(CustomerFeedbackRepositoryContract::class, CustomerFeedBackRepositoryImplementation::class);
+        $this->app->bind(CustomerFeedBackServiceContract::class, CustomerFeedBackServiceImplementation::class);
+        $this->app->bind(ChartServiceContract::class, ChartServiceImplementation::class);
+        $this->app->bind(UserRepositoryContract::class, UserRepositoryImplementation::class);
+        $this->app->bind(UserServiceContract::class, UserServiceImplementation::class);
 
     }
 

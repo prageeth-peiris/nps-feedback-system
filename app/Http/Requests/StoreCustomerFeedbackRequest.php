@@ -3,14 +3,9 @@
 namespace App\Http\Requests;
 
 use App\DTO\CustomerFeedbackDTO;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Validator;
 
 class StoreCustomerFeedbackRequest extends BaseFormRequest
 {
-
-
-
     public function rules(): array
     {
         return [
@@ -19,15 +14,15 @@ class StoreCustomerFeedbackRequest extends BaseFormRequest
         ];
     }
 
+    public function getValidatedData(): CustomerFeedbackDTO
+    {
 
-    public function getValidatedData(): CustomerFeedbackDTO {
+        $this->validate();
 
-            $this->validate();
         return new CustomerFeedbackDTO(
             feedback_score: $this->request->post('feedback_score'),
             answer_to_follow_up_question: $this->request->post('feedback_message'),
         );
 
     }
-
 }

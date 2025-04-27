@@ -2,7 +2,4 @@
 
 namespace App\Exceptions;
 
-class UserPasswordDoesNotMatchException extends \Exception
-{
-
-}
+class UserPasswordDoesNotMatchException extends \Exception {}

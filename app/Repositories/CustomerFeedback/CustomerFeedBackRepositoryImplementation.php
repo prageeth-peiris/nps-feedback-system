@@ -14,33 +14,26 @@ class CustomerFeedBackRepositoryImplementation implements CustomerFeedbackReposi
 
         CustomerFeedback::create($customerFeedbackDTO->toArray());
 
-
-
     }
 
     public function retrieve(DataTableDTO $dataTableDTO): Collection
     {
 
-
         return CustomerFeedback::query()
-               ->where($dataTableDTO->getFilters())
-            ->orderBy($dataTableDTO->sortingColumn,$dataTableDTO->sortingDirection)
+            ->where($dataTableDTO->getFilters())
+            ->orderBy($dataTableDTO->sortingColumn, $dataTableDTO->sortingDirection)
             ->limit($dataTableDTO->limit)
             ->offset($dataTableDTO->offset)
-            ->get()
-            ;
-
+            ->get();
 
     }
 
     public function countOfFeedbacksOfEachResponseGroup(): Collection
     {
         return CustomerFeedback::query()
-            ->selectRaw("response_group,count(*) as total")
-            ->groupBy("response_group")
-            ->orderBy('total','desc')
+            ->selectRaw('response_group,count(*) as total')
+            ->groupBy('response_group')
+            ->orderBy('total', 'desc')
             ->get();
     }
-
-
 }

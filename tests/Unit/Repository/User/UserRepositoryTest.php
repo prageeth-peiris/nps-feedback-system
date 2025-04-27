@@ -9,7 +9,6 @@ use Tests\TestCase;
 
 class UserRepositoryTest extends TestCase
 {
-
     public function test_it_retrieves_user_by_email()
     {
         User::factory()->create(['email' => 'johndoe@example.com']);
@@ -25,7 +24,8 @@ class UserRepositoryTest extends TestCase
 
     }
 
-    public function test_it_retrieves_null_if_user_not_found(){
+    public function test_it_retrieves_null_if_user_not_found()
+    {
 
         User::factory()->create(['email' => 'johndoe@example.com']);
 
@@ -39,7 +39,4 @@ class UserRepositoryTest extends TestCase
         $this->assertTrue(is_null($user));
 
     }
-
-
-
 }

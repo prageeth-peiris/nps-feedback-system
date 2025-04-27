@@ -14,12 +14,11 @@ class TextArea extends Component
     public function __construct(
         public string $label = 'Enter Text',
         public string $placeholder = 'Enter Text',
-        public string $id = "my-textarea",
+        public string $id = 'my-textarea',
         public bool $required = true,
-        public string $extraAttributes = ""  // here define extra attributes row=4
+        public string $extraAttributes = ''  // here define extra attributes row=4
 
-    )
-    {
+    ) {
         //
     }
 

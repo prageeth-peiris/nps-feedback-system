@@ -10,8 +10,6 @@ use Tests\TestCase;
 
 class ChartServiceTest extends TestCase
 {
-
-
     public function test_it_returns_chart_data_of_count_of_total_feedback_of_each_response_group()
     {
 
@@ -45,18 +43,12 @@ class ChartServiceTest extends TestCase
 
         );
 
-
-
         /** @var ChartDataDTO $data */
         $data = app(ChartServiceContract::class)->countOfFeedbacksOfEachResponseGroup();
 
-        $this->assertEquals(["Promoter","Detractor"], $data->labels);
+        $this->assertEquals(['Promoter', 'Detractor'], $data->labels);
 
-        $this->assertEquals([3,2], $data->dataSets);
-
+        $this->assertEquals([3, 2], $data->dataSets);
 
     }
-
-
-
 }

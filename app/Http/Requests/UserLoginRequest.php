@@ -11,8 +11,8 @@ class UserLoginRequest extends BaseFormRequest
         return [
 
             'email' => 'required|email',
-        'password' => 'required | string '
-            ];
+            'password' => 'required | string ',
+        ];
     }
 
     public function getValidatedData(): UserCredentialsDTO
@@ -22,10 +22,8 @@ class UserLoginRequest extends BaseFormRequest
 
         return new UserCredentialsDTO(
             email : $this->request->post('email'),
-        password : $this->request->post('password')
+            password : $this->request->post('password')
         );
 
     }
-
-
 }

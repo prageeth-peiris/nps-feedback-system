@@ -15,13 +15,10 @@ class Input extends Component
         public string $type = 'text', // here type means input type=text type=password
         public string $label = 'Enter Text',
         public string $placeholder = 'Enter Text',
-        public string $id = "my-text",
+        public string $id = 'my-text',
         public bool $required = true,
-        public string $extraAttributes = ""  // here define extra attributes like min=0 max=10 etc
-    )
-    {
-
-    }
+        public string $extraAttributes = ''  // here define extra attributes like min=0 max=10 etc
+    ) {}
 
     /**
      * Get the view / contents that represent the component.

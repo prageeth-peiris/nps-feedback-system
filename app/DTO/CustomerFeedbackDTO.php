@@ -2,54 +2,45 @@
 
 namespace App\DTO;
 
-class CustomerFeedbackDTO extends BaseDataTransferObject {
+class CustomerFeedbackDTO extends BaseDataTransferObject
+{
+    // uses constructor property promotion
+    public function __construct(
+        public int $feedback_score,
+        public ?string $answer_to_follow_up_question = null
+    ) {}
 
-// uses constructor property promotion
-public function __construct(
-    public int $feedback_score,
-    public ?string $answer_to_follow_up_question = null
-){
-}
+    public function getResponseGroup(): string
+    {
 
+        $score = $this->feedback_score;
 
-public function getResponseGroup():string{
+        if ($score >= 9 && $score <= 10) {
+            return 'Promoter';
+        }
 
-    $score = $this->feedback_score;
+        if ($score >= 7 && $score <= 8) {
+            return 'Passive';
+        }
 
-    if($score >= 9 && $score <= 10){
-            return "Promoter";
+        if ($score >= 0 && $score <= 6) {
+            return 'Detractor';
+        }
+
+        throw new \Exception('Invalid Feedback score to define the response group');
     }
 
-    if($score >= 7 && $score <= 8){
-        return "Passive";
-}
+    // this can be used for persisting data in  database
+    public function toArray(): array
+    {
 
-if($score >= 0 && $score <= 6){
-    return "Detractor";
-}
+        return [
 
+            'feedback_score' => $this->feedback_score,
+            'answer_to_follow_up_question' => $this->answer_to_follow_up_question,
+            'response_group' => $this->getResponseGroup(),
 
-throw new \Exception("Invalid Feedback score to define the response group");
+        ];
 
-
-}
-
-
-// this can be used for persisting data in  database
-public function toArray(): array {
-
-    return [
-
-        'feedback_score' => $this->feedback_score,
-        'answer_to_follow_up_question' => $this->answer_to_follow_up_question,
-        'response_group' => $this->getResponseGroup()
-
-
-    ];
-
-}
-
-
-
-
+    }
 }

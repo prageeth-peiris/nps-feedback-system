@@ -8,10 +8,7 @@ use Illuminate\Support\Collection;
 
 interface CustomerFeedbackServiceContract
 {
-
     public function save(CustomerFeedbackDTO $customerFeedbackDTO);
 
-    public function retrieve(DataTableDTO $dataTableDTO) : Collection;
-
-
+    public function retrieve(DataTableDTO $dataTableDTO): Collection;
 }

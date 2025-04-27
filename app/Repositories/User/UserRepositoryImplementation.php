@@ -10,10 +10,7 @@ class UserRepositoryImplementation implements UserRepositoryContract
     public function retrieveUserByEmail(UserCredentialsDTO $userCredentialsDTO): ?User
     {
 
-        return  User::where('email', $userCredentialsDTO->email)->first();
-
+        return User::where('email', $userCredentialsDTO->email)->first();
 
     }
-
-
 }

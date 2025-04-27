@@ -15,8 +15,7 @@ class Form extends Component
         public string $action,
         public string $method,
         public ?string $title = null
-    )
-    {
+    ) {
         //
     }
 

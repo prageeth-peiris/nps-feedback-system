@@ -17,7 +17,7 @@ class BarChart extends Component
      */
     public function __construct(ChartServiceContract $chartService)
     {
-       $this->chartData = $chartService->countOfFeedbacksOfEachResponseGroup();
+        $this->chartData = $chartService->countOfFeedbacksOfEachResponseGroup();
     }
 
     /**
@@ -27,7 +27,4 @@ class BarChart extends Component
     {
         return view('components.charts.bar-chart');
     }
-
-
-
 }
