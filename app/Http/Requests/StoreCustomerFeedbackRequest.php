@@ -4,26 +4,17 @@ namespace App\Http\Requests;
 
 use App\DTO\CustomerFeedbackDTO;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
 
-class StoreCustomerFeedbackRequest extends FormRequest
+class StoreCustomerFeedbackRequest extends BaseFormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
-    }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
+
+
     public function rules(): array
     {
         return [
-            'feedback_score' => 'required| numeric | min:0 | max:10',
+            'feedback_score' => 'required | numeric | min:0 | max:10',
             'feedback_message' => 'sometimes | string | max:65000',
         ];
     }
@@ -31,11 +22,10 @@ class StoreCustomerFeedbackRequest extends FormRequest
 
     public function getValidatedData(): CustomerFeedbackDTO {
 
-        $this->validate($this->rules());
-
+            $this->validate();
         return new CustomerFeedbackDTO(
-            feedback_score: $this->post('feedback_score'),
-            answer_to_follow_up_question: $this->post('feedback_message'),
+            feedback_score: $this->request->post('feedback_score'),
+            answer_to_follow_up_question: $this->request->post('feedback_message'),
         );
 
     }
