@@ -17,7 +17,7 @@ class AuthController extends Controller
     {
     }
 
-    public function login(UserLoginRequest $request){
+    public function auth(UserLoginRequest $request){
 
         try{
 
@@ -34,7 +34,7 @@ class AuthController extends Controller
         }catch (NoUserFoundException | UserPasswordDoesNotMatchException $e){
             return redirect()->route('login')->withErrors(['fail' => $e->getMessage()]);
         }catch (\Exception $e){
-            return redirect()->route('login')->with(['fail'=> "Something went wrong"]);
+            return redirect()->route('login')->withErrors(['fail'=> "Something went wrong"]);
         }
     }
 
