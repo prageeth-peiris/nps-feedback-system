@@ -44,17 +44,18 @@ class CustomerFeedbackDataTableTest extends TestCase
 
        );
 
+       // we have written special mapping to map response_group parameter to DataTableDTO filters format
        $response = $this->get(route('dashboard',[
 
-           'filters' => [
-               ['response_group','=','Detractor'],
-           ]
+           'response_group' => 'Detractor'
        ]));
 
        $response->assertStatus(200);
 
        // as we filter Detractors there can not be Promoter records
-       $response->assertDontSee('Promoter');
+       //but we can not just check Promoters text as in the filters dropdown there it can be.
+       //so we have to check a table record in html
+       $response->assertDontSee('<td class="py-3 px-6 text-left">Promoter</td>');
 
    }
 
