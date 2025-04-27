@@ -12,7 +12,7 @@ class StatCard extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public readonly  string $heading)
+    public function __construct(public readonly string $heading)
     {
         //
     }
@@ -25,12 +25,12 @@ class StatCard extends Component
         return view('components.stat-card');
     }
 
-    public function calculateNPSScore():float{
+    public function calculateNPSScore(): float
+    {
 
         $service = app(CustomerFeedbackServiceContract::class);
 
         return $service->calculateNPSScore();
 
     }
-
 }

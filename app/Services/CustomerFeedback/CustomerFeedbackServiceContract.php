@@ -14,5 +14,5 @@ interface CustomerFeedbackServiceContract
 
     public function retrieveCount(DataTableDTO $dataTableDTO): int;
 
-    public function calculateNPSScore() : float;
+    public function calculateNPSScore(): float;
 }
