@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CustomerFeedbackDataTableRequest;
 use App\Http\Requests\StoreCustomerFeedbackRequest;
+use App\Repositories\CustomerFeedback\CustomerFeedbackRepositoryContract;
 use App\Services\CustomerFeedback\CustomerFeedbackServiceContract;
+use App\Services\DataTable\DataExporterContract;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class CustomerFeedbackController extends Controller
 {
@@ -44,4 +47,16 @@ class CustomerFeedbackController extends Controller
         }
 
     }
+
+    public function export(DataExporterContract $dataExporterContract,CustomerFeedbackRepositoryContract $customerFeedbackRepositoryContract): StreamedResponse
+    {
+
+
+          $response =  $dataExporterContract->write($customerFeedbackRepositoryContract);
+
+
+        return $response;
+
+    }
+
 }
