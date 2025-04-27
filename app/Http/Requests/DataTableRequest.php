@@ -26,7 +26,7 @@ class DataTableRequest extends FormRequest
         sortingDirection: $this->get('sortingDirection') ?? $defaultDataTableDTO->sortingDirection,
         offset: $this->get('offset') ?? $defaultDataTableDTO->offset,
         limit: $this->get('limit') ?? $defaultDataTableDTO->limit,
-        filters: $this->get('filters') ?? $defaultDataTableDTO->filters,
+        filters: $this->get('filters') ?? $defaultDataTableDTO->getFilters(),
 
     );
 
