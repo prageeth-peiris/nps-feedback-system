@@ -8,9 +8,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 interface DataExporterContract
 {
-
     // there can be more data exporter formats but each has a write method and
     // each uses this base contract to get  related Model , and query builder object
-    public function write(BaseRepositoryPropertiesContract $baseRepositoryPropertiesContract) : StreamedResponse;
-
+    public function write(BaseRepositoryPropertiesContract $baseRepositoryPropertiesContract): StreamedResponse;
 }

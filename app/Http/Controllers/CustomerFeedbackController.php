@@ -48,15 +48,12 @@ class CustomerFeedbackController extends Controller
 
     }
 
-    public function export(DataExporterContract $dataExporterContract,CustomerFeedbackRepositoryContract $customerFeedbackRepositoryContract): StreamedResponse
+    public function export(DataExporterContract $dataExporterContract, CustomerFeedbackRepositoryContract $customerFeedbackRepositoryContract): StreamedResponse
     {
 
-
-          $response =  $dataExporterContract->write($customerFeedbackRepositoryContract);
-
+        $response = $dataExporterContract->write($customerFeedbackRepositoryContract);
 
         return $response;
 
     }
-
 }

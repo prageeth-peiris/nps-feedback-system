@@ -3,7 +3,6 @@
 namespace App\Services\DataTable;
 
 use App\Repositories\BaseRepositoryPropertiesContract;
-
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -11,7 +10,6 @@ class CSVExporter implements DataExporterContract
 {
     public function write(BaseRepositoryPropertiesContract $baseRepositoryPropertiesContract): StreamedResponse
     {
-
 
         $response = new StreamedResponse(function () use ($baseRepositoryPropertiesContract) {
             // Open output stream
@@ -22,8 +20,6 @@ class CSVExporter implements DataExporterContract
             DB::table($baseRepositoryPropertiesContract->getModel()->getTable())->chunkById(100, function ($chunks) use ($handle) {
 
                 foreach ($chunks as $chunk) {
-
-
 
                     // Convert object to array, write to CSV
                     fputcsv($handle, (array) $chunk);
@@ -38,8 +34,5 @@ class CSVExporter implements DataExporterContract
 
         return $response;
 
-
     }
-
-
 }

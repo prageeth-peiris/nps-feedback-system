@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     // dashboard page view route
     Route::get('dashboard', [CustomerFeedbackController::class, 'list'])->name('dashboard');
 
-    //export route csv file streamed response
+    // export route csv file streamed response
     Route::get('export', [CustomerFeedbackController::class, 'export'])->name('export');
 
 });

@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ChartServiceContract::class, ChartServiceImplementation::class);
         $this->app->bind(UserRepositoryContract::class, UserRepositoryImplementation::class);
         $this->app->bind(UserServiceContract::class, UserServiceImplementation::class);
-        $this->app->bind(DataExporterContract::class,CSVExporter::class);
+        $this->app->bind(DataExporterContract::class, CSVExporter::class);
 
     }
 
