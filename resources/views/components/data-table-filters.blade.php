@@ -24,7 +24,39 @@
     ]"
         :required="false"
     />
+
+
+
+       <x-forms.dropdown
+           id="sortingColumn"
+           label="Order By"
+           :options="[
+
+      ['id', 'ID'],
+    ['feedback_score', 'Score'],
+    ['answer_to_follow_up_question', 'Follow-Up Answer'],
+    ['response_group', 'Response Group'],
+    ['created_at', 'Submitted Date'],
+
+    ]"
+           :required="false"
+       />
+
+ <x-forms.dropdown
+     id="sortingDirection"
+     label="Sorting Direction"
+     :options="[
+
+        ['asc','Ascending'] , ['desc','Descending']
+
+    ]"
+     :required="false"
+ />
+
+
 </span>
+
+
 
 
     <div class="flex items-end w-1/6 mt-2">
