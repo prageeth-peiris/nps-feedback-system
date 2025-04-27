@@ -20,12 +20,26 @@ class DataTableDTO extends BaseDataTransferObject
 //
 //
 //             ]
-        public readonly array $filters = [] ,
+        private   array $filters = [] ,
 
 
         public readonly int $offset = 0,
         public readonly int $limit = 10,
     )
     {
+
+
+
+
+    }
+
+    public function getFilters(): array
+    {
+        return $this->filters;
+    }
+
+    public function setFilters(array $filters): void
+    {
+        $this->filters = $filters;
     }
 }
