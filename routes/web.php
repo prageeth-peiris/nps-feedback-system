@@ -16,3 +16,5 @@ Route::post('create-customer-feedback',[CustomerFeedbackController::class,'store
     ->name('create-customer-feedback');
 
 Route::get('dashboard',[CustomerFeedbackController::class,'list'])->name('dashboard');
+
+Route::post('login',[\App\Http\Controllers\AuthController::class,'login'])->name('login');
