@@ -8,7 +8,7 @@
 
 
 
-    <x-data-table :records="$records">
+    <x-data-table :records="$records" :total="$total">
 
         <x-slot:filters>
         @include('components.data-table-filters')

@@ -1,7 +1,11 @@
 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
     <!-- Table Header -->
     <div class="px-6 py-4 border-b border-gray-200 flex justify-between">
-        <h2 class="text-xl font-semibold text-gray-800">All Customer Feedbacks</h2>
+        <span>
+             <h2 class="text-xl font-semibold text-gray-800">All Customer Feedbacks</h2>
+            <p>Total Records : {{$total}}</p>
+        </span>
+
         <a class="w-1/12" href="{{route('export')}}">  <x-forms.button type="reset" label="Export"/></a>
 
     </div>
