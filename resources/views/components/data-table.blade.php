@@ -2,7 +2,7 @@
     <!-- Table Header -->
     <div class="px-6 py-4 border-b border-gray-200 flex justify-between">
         <h2 class="text-xl font-semibold text-gray-800">All Customer Feedbacks</h2>
-        <a class="w-1/5" href="{{route('export')}}">  <x-forms.button type="reset" label="Export"/></a>
+        <a class="w-1/12" href="{{route('export')}}">  <x-forms.button type="reset" label="Export"/></a>
 
     </div>
 
@@ -28,6 +28,11 @@
                         Feedback Message
                     </div>
                 </th>
+                <th class="py-3 px-6 text-left">
+                    <div class="flex items-center">
+                        Submitted Date
+                    </div>
+                </th>
             </tr>
             </thead>
             <tbody class="text-gray-600 text-sm">
@@ -39,6 +44,7 @@
                 <td class="py-3 px-6 text-left whitespace-nowrap">{{$record->feedback_score}}</td>
                 <td class="py-3 px-6 text-left">{{$record->response_group}}</td>
                 <td class="py-3 px-6 text-left">{{$record->answer_to_follow_up_question}}</td>
+                <td class="py-3 px-6 text-left">{{$record->created_at}}</td>
             </tr>
 
             @endforeach
