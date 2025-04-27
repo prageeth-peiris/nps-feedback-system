@@ -1,4 +1,4 @@
-<aside class="w-64 bg-gray-800 text-white flex-shrink-0">
+<aside class="w-64 bg-gray-800 text-white flex-shrink-0 hidden md:block">
     <div class="p-4">
         <h1 class="text-2xl font-bold">Admin Panel</h1>
     </div>
