@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\CustomerFeedback\CustomerFeedbackRepositoryContract;
 use App\Repositories\CustomerFeedback\CustomerFeedBackRepositoryImplementation;
+use App\Repositories\User\UserRepositoryContract;
+use App\Repositories\User\UserRepositoryImplementation;
 use App\Services\Charts\ChartServiceContract;
 use App\Services\Charts\ChartServiceImplementation;
 use App\Services\CustomerFeedback\CustomerFeedbackServiceContract;
@@ -21,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
        $this->app->bind(CustomerFeedbackRepositoryContract::class,CustomerFeedBackRepositoryImplementation::class);
        $this->app->bind(CustomerFeedBackServiceContract::class,CustomerFeedBackServiceImplementation::class);
        $this->app->bind(ChartServiceContract::class,ChartServiceImplementation::class);
+       $this->app->bind(UserRepositoryContract::class,UserRepositoryImplementation::class);
 
 
     }
