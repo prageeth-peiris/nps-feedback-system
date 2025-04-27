@@ -3,13 +3,10 @@
 namespace Database\Factories;
 
 use App\DTO\CustomerFeedbackDTO;
-use App\Models\CustomerFeedback;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CustomerFeedBackFactory extends Factory
 {
-
-
     public function definition(): array
     {
 

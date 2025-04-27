@@ -14,8 +14,6 @@ class CustomerFeedback extends Model
 
     protected static function newFactory(): CustomerFeedBackFactory
     {
-        return new CustomerFeedbackFactory();
+        return new CustomerFeedbackFactory;
     }
-
-
 }
