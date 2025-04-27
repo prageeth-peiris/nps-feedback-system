@@ -12,6 +12,8 @@ class Form extends Component
      * Create a new component instance.
      */
     public function __construct(
+        public string $action,
+        public string $method,
         public ?string $title = null
     )
     {
