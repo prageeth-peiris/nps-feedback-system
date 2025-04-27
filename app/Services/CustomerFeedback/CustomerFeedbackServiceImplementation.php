@@ -28,6 +28,4 @@ class CustomerFeedbackServiceImplementation implements CustomerFeedbackServiceCo
     {
         return $this->customerFeedbackRepository->retrieveCount($dataTableDTO);
     }
-
-
 }

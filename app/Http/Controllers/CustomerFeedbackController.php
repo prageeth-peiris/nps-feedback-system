@@ -20,7 +20,6 @@ class CustomerFeedbackController extends Controller
     public function store(StoreCustomerFeedbackRequest $request)
     {
 
-
         try {
 
             $this->customerFeedbackServiceContract->save($request->getValidatedData());
@@ -43,9 +42,7 @@ class CustomerFeedbackController extends Controller
             $records = $this->customerFeedbackServiceContract->retrieve($dataTableRequest->getValidatedData());
             $total = $this->customerFeedbackServiceContract->retrieveCount($dataTableRequest->getValidatedData());
 
-
-
-            return view('admin.pages.dashboard', compact('records','total'));
+            return view('admin.pages.dashboard', compact('records', 'total'));
         } catch (\Exception $exception) {
 
         }

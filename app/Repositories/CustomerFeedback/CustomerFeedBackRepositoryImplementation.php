@@ -53,6 +53,4 @@ class CustomerFeedBackRepositoryImplementation implements BaseRepositoryProperti
             ->count();
 
     }
-
-
 }

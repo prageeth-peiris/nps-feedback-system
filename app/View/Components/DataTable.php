@@ -13,9 +13,8 @@ class DataTable extends Component
      * Create a new component instance.
      */
     public function __construct(public readonly array|Collection|\Illuminate\Support\Collection $records,
-    public readonly int $total
-    )
-    {
+        public readonly int $total
+    ) {
         //
     }
 
