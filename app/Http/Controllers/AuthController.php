@@ -29,12 +29,12 @@ class AuthController extends Controller
 
         }catch (ValidationException $exception){
 
-            return back()->withErrors($exception->errors());
+            return redirect()->route('login')->withErrors($exception->errors());
 
         }catch (NoUserFoundException | UserPasswordDoesNotMatchException $e){
-            return redirect()->route('admin-login')->withErrors(['fail' => $e->getMessage()]);
+            return redirect()->route('login')->withErrors(['fail' => $e->getMessage()]);
         }catch (\Exception $e){
-            return redirect()->route('admin-login')->with(['fail'=> "Something went wrong"]);
+            return redirect()->route('login')->with(['fail'=> "Something went wrong"]);
         }
     }
 
