@@ -16,6 +16,7 @@ class TextArea extends Component
         public string $placeholder = 'Enter Text',
         public string $id = 'my-textarea',
         public bool $required = true,
+        public string $formId = 'my-form',
         public string $extraAttributes = ''  // here define extra attributes row=4
 
     ) {
