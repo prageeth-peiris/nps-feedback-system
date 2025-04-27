@@ -18,3 +18,8 @@ Route::post('create-customer-feedback',[CustomerFeedbackController::class,'store
 Route::get('dashboard',[CustomerFeedbackController::class,'list'])->name('dashboard');
 
 Route::post('login',[\App\Http\Controllers\AuthController::class,'login'])->name('login');
+
+Route::get('admin',function(){
+
+    return view('frontend.userLogIn');
+})->name('admin-login');
