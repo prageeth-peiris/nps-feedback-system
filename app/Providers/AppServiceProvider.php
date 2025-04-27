@@ -10,6 +10,8 @@ use App\Services\Charts\ChartServiceContract;
 use App\Services\Charts\ChartServiceImplementation;
 use App\Services\CustomerFeedback\CustomerFeedbackServiceContract;
 use App\Services\CustomerFeedback\CustomerFeedbackServiceImplementation;
+use App\Services\User\UserServiceContract;
+use App\Services\User\UserServiceImplementation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
        $this->app->bind(CustomerFeedBackServiceContract::class,CustomerFeedBackServiceImplementation::class);
        $this->app->bind(ChartServiceContract::class,ChartServiceImplementation::class);
        $this->app->bind(UserRepositoryContract::class,UserRepositoryImplementation::class);
+       $this->app->bind(UserServiceContract::class,UserServiceImplementation::class);
 
 
     }
