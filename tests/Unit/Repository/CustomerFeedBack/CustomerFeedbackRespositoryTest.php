@@ -89,4 +89,49 @@ class CustomerFeedbackRespositoryTest extends TestCase
     }
 
 
+    public function test_it_retrieves_count_of_total_feedbacks_of_each_response_group()
+    {
+
+        CustomerFeedback::factory()->create(
+
+            (new CustomerFeedbackDTO(feedback_score: 6))->toArray()
+
+        );
+
+        CustomerFeedback::factory()->create(
+
+            (new CustomerFeedbackDTO(feedback_score: 2))->toArray()
+
+        );
+
+        CustomerFeedback::factory()->create(
+
+            (new CustomerFeedbackDTO(feedback_score: 9))->toArray()
+
+        );
+
+        CustomerFeedback::factory()->create(
+
+            (new CustomerFeedbackDTO(feedback_score: 10))->toArray()
+
+        );
+
+        CustomerFeedback::factory()->create(
+
+            (new CustomerFeedbackDTO(feedback_score: 10))->toArray()
+
+        );
+
+
+        $results =   app(CustomerFeedbackRepositoryContract::class)->countOfFeedbacksOfEachResponseGroup();
+
+
+        $this->assertEquals([
+            ['response_group' => 'Detractor','total' => 2],
+            ['response_group' => 'Promoter','total' => 3],
+        ],$results->toArray());
+
+    }
+
+
 }
