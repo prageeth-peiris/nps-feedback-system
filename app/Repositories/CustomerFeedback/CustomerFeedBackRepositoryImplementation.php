@@ -23,7 +23,7 @@ class CustomerFeedBackRepositoryImplementation implements CustomerFeedbackReposi
 
 
         return CustomerFeedback::query()
-               ->where($dataTableDTO->filters)
+               ->where($dataTableDTO->getFilters())
             ->orderBy($dataTableDTO->sortingColumn,$dataTableDTO->sortingDirection)
             ->limit($dataTableDTO->limit)
             ->offset($dataTableDTO->offset)
