@@ -14,4 +14,12 @@ interface  CustomerFeedbackRepositoryContract
 
     public function retrieve(DataTableDTO $dataTableDTO):Collection;
 
+    // this will return count feedbacks of each responseGroup. sample will be lke this
+    // [
+    //  ["response_group" => "Promoter" , "total" => 3] ,
+    //  ["response_group" => "Passive" , "total" => 3] ,
+    //
+    // ]
+    public function countOfFeedbacksOfEachResponseGroup():Collection;
+
 }
