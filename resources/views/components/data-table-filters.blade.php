@@ -62,7 +62,7 @@
     <div class="flex items-end w-1/6 mt-2">
           <span class="w-full flex gap-2">
       <x-forms.button label="Apply"/>
-       <x-forms.button type="clear" label="Clear"/>
+
     </span>
     </div>
 
