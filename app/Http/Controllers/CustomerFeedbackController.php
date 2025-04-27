@@ -21,16 +21,12 @@ class CustomerFeedbackController extends Controller
     {
     }
 
-    public function store(){
+
+    // warning : this form request does not belong to laravel default FormRequest class
+    public function store(StoreCustomerFeedbackRequest $request){
 
 
             try{
-                // here I have instantiated  the request object here because
-                //if I injected it as a dependency then it will throw exception
-                // before request comes here. then it is hard to pass data to frontend view
-                $request = new StoreCustomerFeedbackRequest();
-
-
 
             $this->customerFeedbackServiceContract->save($request->getValidatedData());
 
