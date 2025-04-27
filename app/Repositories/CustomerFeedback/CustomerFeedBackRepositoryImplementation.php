@@ -33,5 +33,14 @@ class CustomerFeedBackRepositoryImplementation implements CustomerFeedbackReposi
 
     }
 
+    public function countOfFeedbacksOfEachResponseGroup(): Collection
+    {
+        return CustomerFeedback::query()
+            ->selectRaw("response_group,count(*) as total")
+            ->groupBy("response_group")
+            ->orderBy('total','desc')
+            ->get();
+    }
+
 
 }
