@@ -3,7 +3,13 @@
 @section('content')
 
 {{--    we have used blade components here --}}
-    <x-forms.form title="Give us your feedback" :action="route('create-customer-feedback')" method="POST">
+{{--    textarea value does not include in form submission unless form attribute is supplied--}}
+    <x-forms.form title="Give us your feedback"
+                  :action="route('create-customer-feedback')"
+                  method="POST"
+                  id="feedback-form"
+
+    >
 
         <x-forms.input
             label="How likely are you to recommend us? (0-10)"
@@ -18,6 +24,7 @@
             placeholder="Write your idea here"
             :required="false"
             id="feedback_message"
+            form-id="feedback-form"
         />
 
         <x-forms.button/>
