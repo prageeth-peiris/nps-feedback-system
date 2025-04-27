@@ -4,6 +4,8 @@
         <h2 class="text-xl font-semibold text-gray-800">All Customer Feedbacks</h2>
     </div>
 
+ {{$filters}}
+
     <!-- Table -->
     <div class="overflow-x-auto">
         <table class="w-full table-auto">
