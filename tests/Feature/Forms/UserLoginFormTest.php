@@ -20,7 +20,7 @@ class UserLoginFormTest extends TestCase
         ]);
 
 
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('attempt-auth'), [
             'email' => 'admin@admin.com',
             'password' => 'password'
         ]);
@@ -38,13 +38,15 @@ class UserLoginFormTest extends TestCase
         ]);
 
 
-        $response = $this->post(route('login'), [
+        $response = $this->post(route('attempt-auth'), [
             'email' => 'abc@gmail.com',
             'password' => '123'
         ]);
-            $response->assertRedirect(route('admin-login'));
 
-            $response->assertSessionHasErrors('fail');
+        $response->assertSessionHasErrors(['fail']);
+            $response->assertRedirect(route('login'));
+
+
 
     }
 
