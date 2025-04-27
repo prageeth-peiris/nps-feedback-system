@@ -42,7 +42,7 @@ class UserLoginFormTest extends TestCase
             'email' => 'abc@gmail.com',
             'password' => '123'
         ]);
-            $response->assertRedirect(route('login'));
+            $response->assertRedirect(route('admin-login'));
 
             $response->assertSessionHasErrors('fail');
 
