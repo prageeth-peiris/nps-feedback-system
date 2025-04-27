@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 
 
+use App\Http\Requests\CustomerFeedbackDataTableRequest;
+use App\Http\Requests\DataTableRequest;
 use App\Http\Requests\StoreCustomerFeedbackRequest;
 use App\Services\CustomerFeedback\CustomerFeedbackServiceContract;
 
@@ -31,6 +33,22 @@ class CustomerFeedbackController extends Controller
 
 
             }
+
+    }
+
+
+    public function list(CustomerFeedbackDataTableRequest $dataTableRequest)
+    {
+
+       try{
+
+       $records =  $this->customerFeedbackServiceContract->retrieve($dataTableRequest->getValidatedData());
+
+       return view('admin.pages.dashboard',compact('records'));
+       }catch (\Exception $exception){
+
+       }
+
 
     }
 

@@ -1,21 +1,17 @@
 <?php
 
-namespace App\View\Components\Forms;
+namespace App\View\Components\Admin;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Button extends Component
+class Navbar extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public string $label = "Submit",
-        public string $type = "submit",
-        public string $extraAttributes = ""
-    )
+    public function __construct()
     {
         //
     }
@@ -25,6 +21,6 @@ class Button extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.forms.button');
+        return view('components.admin.navbar');
     }
 }

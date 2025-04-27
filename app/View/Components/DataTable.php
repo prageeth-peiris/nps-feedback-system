@@ -1,21 +1,19 @@
 <?php
 
-namespace App\View\Components\Forms;
+namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class Button extends Component
+class DataTable extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(
-        public string $label = "Submit",
-        public string $type = "submit",
-        public string $extraAttributes = ""
-    )
+    public function __construct(public readonly array|Collection|\Illuminate\Support\Collection $records)
     {
         //
     }
@@ -25,6 +23,6 @@ class Button extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.forms.button');
+        return view('components.data-table');
     }
 }
