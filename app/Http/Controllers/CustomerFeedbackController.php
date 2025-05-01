@@ -28,6 +28,8 @@ class CustomerFeedbackController extends Controller
 
         } catch (ValidationException $exception) {
 
+            report($exception);
+
             return redirect()->back()->withErrors($exception->errors());
 
         }
@@ -44,7 +46,7 @@ class CustomerFeedbackController extends Controller
 
             return view('admin.pages.dashboard', compact('records', 'total'));
         } catch (\Exception $exception) {
-
+                 report($exception);
         }
 
     }

@@ -31,6 +31,7 @@ class AuthController extends Controller
         } catch (NoUserFoundException|UserPasswordDoesNotMatchException $e) {
             return redirect()->route('login')->withErrors(['fail' => $e->getMessage()]);
         } catch (\Exception $e) {
+            report($e);
             return redirect()->route('login')->withErrors(['fail' => 'Something went wrong']);
         }
     }
